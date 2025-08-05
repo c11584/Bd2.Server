@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <AssemblyName>Bd2.Server.Api</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp8.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\服务端\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlSugar">
+      <HintPath>..\..\服务端\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\服务端\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Bd2.Server.Model">
+      <HintPath>..\..\服务端\Bd2.Server.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Bd2.Server.Common">
+      <HintPath>..\..\服务端\Bd2.Server.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Bd2.Server.iServices">
+      <HintPath>..\..\服务端\Bd2.Server.iServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>..\..\服务端\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\..\服务端\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extensions.DependencyInjection">
+      <HintPath>..\..\服务端\Autofac.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
+      <HintPath>..\..\服务端\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
+    </Reference>
+    <Reference Include="Bd2.Server.Extensions">
+      <HintPath>..\..\服务端\Bd2.Server.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Extensions.Microsoft.DependencyInjection">
+      <HintPath>..\..\服务端\AutoMapper.Extensions.Microsoft.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.Swagger">
+      <HintPath>..\..\服务端\Swashbuckle.AspNetCore.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerUI">
+      <HintPath>..\..\服务端\Swashbuckle.AspNetCore.SwaggerUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\服务端\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>..\..\服务端\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyTool.Core">
+      <HintPath>..\..\服务端\EasyTool.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
