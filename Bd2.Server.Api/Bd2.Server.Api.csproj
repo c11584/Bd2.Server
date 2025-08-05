@@ -22,7 +22,7 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\服务端\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Bd2.Server.Model">
+<!--     <Reference Include="Bd2.Server.Model">
       <HintPath>..\..\服务端\Bd2.Server.Model.dll</HintPath>
     </Reference>
     <Reference Include="Bd2.Server.Common">
@@ -30,7 +30,8 @@
     </Reference>
     <Reference Include="Bd2.Server.iServices">
       <HintPath>..\..\服务端\Bd2.Server.iServices.dll</HintPath>
-    </Reference>
+    </Reference> -->
+	<ProjectReference Include="..\Bd2.Server.iServices\Bd2.Server.iServices.csproj" />
     <Reference Include="Microsoft.IdentityModel.Tokens">
       <HintPath>..\..\服务端\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
@@ -43,9 +44,10 @@
     <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
       <HintPath>..\..\服务端\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
     </Reference>
-    <Reference Include="Bd2.Server.Extensions">
+<!--     <Reference Include="Bd2.Server.Extensions">
       <HintPath>..\..\服务端\Bd2.Server.Extensions.dll</HintPath>
-    </Reference>
+    </Reference> -->
+	<ProjectReference Include="..\Bd2.Server.Extensions\Bd2.Server.Extensions.csproj" />
     <Reference Include="AutoMapper.Extensions.Microsoft.DependencyInjection">
       <HintPath>..\..\服务端\AutoMapper.Extensions.Microsoft.DependencyInjection.dll</HintPath>
     </Reference>
@@ -64,5 +66,6 @@
     <Reference Include="EasyTool.Core">
       <HintPath>..\..\服务端\EasyTool.Core.dll</HintPath>
     </Reference>
+	<ProjectReference Include="..\Bd2.Server.Services\Bd2.Server.Services.csproj" />
   </ItemGroup>
 </Project>

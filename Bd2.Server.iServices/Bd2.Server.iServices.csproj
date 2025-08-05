@@ -12,8 +12,9 @@
   <PropertyGroup />
   <ItemGroup />
   <ItemGroup>
-    <Reference Include="Bd2.Server.Common">
+<!--     <Reference Include="Bd2.Server.Common">
       <HintPath>..\..\服务端\Bd2.Server.Common.dll</HintPath>
-    </Reference>
+    </Reference> -->
+	<ProjectReference Include="..\Bd2.Server.Common\Bd2.Server.Common.csproj" />
   </ItemGroup>
 </Project>

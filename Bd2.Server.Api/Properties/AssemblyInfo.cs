@@ -17,4 +17,3 @@ using Microsoft.AspNetCore.Mvc.ApplicationParts;
 [assembly: ApplicationPart("EasyTool.Core")]
 [assembly: ApplicationPart("Swashbuckle.AspNetCore.SwaggerGen")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[module: RefSafetyRules(11)]

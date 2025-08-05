@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 internal sealed class _003C_003Ez__ReadOnlyArray<T> : IEnumerable, ICollection, IList, IEnumerable<T>, IReadOnlyCollection<T>, IReadOnlyList<T>, ICollection<T>, IList<T>
 {
-	int ICollection.Count => _items.Length;
+    private readonly T[] _items;
+
+    int ICollection.Count => _items.Length;
 
 	bool ICollection.IsSynchronized => false;
 

@@ -12,9 +12,10 @@
   <PropertyGroup />
   <ItemGroup />
   <ItemGroup>
-    <Reference Include="Bd2.Server.iServices">
+<!--     <Reference Include="Bd2.Server.iServices">
       <HintPath>..\..\服务端\Bd2.Server.iServices.dll</HintPath>
-    </Reference>
+    </Reference> -->
+	<ProjectReference Include="..\Bd2.Server.iServices\Bd2.Server.iServices.csproj" />
     <Reference Include="Microsoft.Extensions.Logging.Abstractions">
       <HintPath>C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.14\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
@@ -24,12 +25,13 @@
     <Reference Include="AutoMapper">
       <HintPath>..\..\服务端\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Bd2.Server.Common">
+<!--     <Reference Include="Bd2.Server.Common">
       <HintPath>..\..\服务端\Bd2.Server.Common.dll</HintPath>
     </Reference>
     <Reference Include="Bd2.Server.Model">
       <HintPath>..\..\服务端\Bd2.Server.Model.dll</HintPath>
-    </Reference>
+    </Reference> -->
+	<ProjectReference Include="..\Bd2.Server.Common\Bd2.Server.Common.csproj" />
     <Reference Include="Google.Protobuf">
       <HintPath>..\..\服务端\Google.Protobuf.dll</HintPath>
     </Reference>

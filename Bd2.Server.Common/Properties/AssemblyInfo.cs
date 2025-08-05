@@ -10,4 +10,3 @@ using System.Runtime.Versioning;
 [assembly: AssemblyProduct("Bd2.Server.Common")]
 [assembly: AssemblyTitle("Bd2.Server.Common")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[module: RefSafetyRules(11)]
