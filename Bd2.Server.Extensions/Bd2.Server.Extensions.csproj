@@ -11,14 +11,18 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Autofac">
+    <PackageReference Include="Autofac" Version="8.4.0" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.19" />
+  </ItemGroup>
+  <ItemGroup>
+<!--     <Reference Include="Autofac">
       <HintPath>..\..\服务端\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\..\服务端\AutoMapper.dll</HintPath>
-    </Reference>
+    </Reference> -->
 <!--     <Reference Include="Bd2.Server.Model">
       <HintPath>..\..\服务端\Bd2.Server.Model.dll</HintPath>
     </Reference>
@@ -26,7 +30,7 @@
       <HintPath>..\..\服务端\Bd2.Server.Common.dll</HintPath>
     </Reference> -->
 	<ProjectReference Include="..\Bd2.Server.Common\Bd2.Server.Common.csproj" />
-    <Reference Include="Google.Protobuf">
+<!--     <Reference Include="Google.Protobuf">
       <HintPath>..\..\服务端\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="SqlSugar">
@@ -37,6 +41,6 @@
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Tokens">
       <HintPath>..\..\服务端\Microsoft.IdentityModel.Tokens.dll</HintPath>
-    </Reference>
+    </Reference> -->
   </ItemGroup>
 </Project>

@@ -11,9 +11,15 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Autofac">
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+<!--     <Reference Include="Autofac">
       <HintPath>..\..\服务端\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="SqlSugar">
@@ -21,7 +27,7 @@
     </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\..\服务端\AutoMapper.dll</HintPath>
-    </Reference>
+    </Reference> -->
 <!--     <Reference Include="Bd2.Server.Model">
       <HintPath>..\..\服务端\Bd2.Server.Model.dll</HintPath>
     </Reference>
@@ -32,7 +38,7 @@
       <HintPath>..\..\服务端\Bd2.Server.iServices.dll</HintPath>
     </Reference> -->
 	<ProjectReference Include="..\Bd2.Server.iServices\Bd2.Server.iServices.csproj" />
-    <Reference Include="Microsoft.IdentityModel.Tokens">
+<!--     <Reference Include="Microsoft.IdentityModel.Tokens">
       <HintPath>..\..\服务端\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
     <Reference Include="System.IdentityModel.Tokens.Jwt">
@@ -43,12 +49,12 @@
     </Reference>
     <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
       <HintPath>..\..\服务端\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
-    </Reference>
+    </Reference> -->
 <!--     <Reference Include="Bd2.Server.Extensions">
       <HintPath>..\..\服务端\Bd2.Server.Extensions.dll</HintPath>
     </Reference> -->
 	<ProjectReference Include="..\Bd2.Server.Extensions\Bd2.Server.Extensions.csproj" />
-    <Reference Include="AutoMapper.Extensions.Microsoft.DependencyInjection">
+<!--     <Reference Include="AutoMapper.Extensions.Microsoft.DependencyInjection">
       <HintPath>..\..\服务端\AutoMapper.Extensions.Microsoft.DependencyInjection.dll</HintPath>
     </Reference>
     <Reference Include="Swashbuckle.AspNetCore.Swagger">
@@ -65,7 +71,7 @@
     </Reference>
     <Reference Include="EasyTool.Core">
       <HintPath>..\..\服务端\EasyTool.Core.dll</HintPath>
-    </Reference>
+    </Reference> -->
 	<ProjectReference Include="..\Bd2.Server.Services\Bd2.Server.Services.csproj" />
   </ItemGroup>
 </Project>
