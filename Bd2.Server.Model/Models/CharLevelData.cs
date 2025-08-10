@@ -5,15 +5,15 @@ namespace Models;
 [SugarTable("CharLevelData")]
 public class CharLevelData
 {
-	[SugarColumn(ColumnName = "GroupId")]
+	[SugarColumn(ColumnName = "GroupId", IsNullable = true)]
 	public int? GroupId { get; set; }
 
-	[SugarColumn(ColumnName = "Level")]
+	[SugarColumn(ColumnName = "Level", IsNullable = true)]
 	public int? Level { get; set; }
 
-	[SugarColumn(ColumnName = "LevelupExp")]
+	[SugarColumn(ColumnName = "LevelupExp", IsNullable = true)]
 	public int? LevelupExp { get; set; }
 
-	[SugarColumn(ColumnName = "Health")]
+	[SugarColumn(ColumnName = "Health", IsNullable = true)]
 	public float? Health { get; set; }
 }

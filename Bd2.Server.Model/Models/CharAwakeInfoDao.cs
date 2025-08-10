@@ -5,7 +5,7 @@ namespace Models;
 [SugarTable("CharAwakeInfo")]
 public class CharAwakeInfoDao
 {
-	[SugarColumn(ColumnName = "Index", IsPrimaryKey = true, IsIdentity = true)]
+	[SugarColumn(ColumnName = "Index", IsPrimaryKey = true, IsIdentity = true, ColumnDataType = "INTEGER")]
 	public long Index { get; set; }
 
 	[SugarColumn(ColumnName = "OwnerIndex")]

@@ -5,7 +5,7 @@ namespace Bd2.Server.Model.DAO.Game;
 [SugarTable("QuestInfo")]
 public class QuestInfoDao
 {
-	[SugarColumn(ColumnName = "Index", IsPrimaryKey = true, IsIdentity = true)]
+	[SugarColumn(ColumnName = "Index", IsPrimaryKey = true, IsIdentity = true, ColumnDataType = "INTEGER")]
 	public long Index { get; set; }
 
 	[SugarColumn(ColumnName = "Uid")]
@@ -17,7 +17,7 @@ public class QuestInfoDao
 	[SugarColumn(ColumnName = "QuestId")]
 	public int QuestId { get; set; }
 
-	[SugarColumn(ColumnName = "QuestClear")]
+	[SugarColumn(ColumnName = "QuestClear", IsNullable = true)]
 	public string? QuestClear { get; set; }
 
 	[SugarColumn(ColumnName = "isPackComplete")]

@@ -35,7 +35,12 @@ public class CustomProfile : Profile
 
 	private int[] ConvertStringToIntArray(string input)
 	{
-		input = input.Trim('[', ']');
+        if (string.IsNullOrEmpty(input))
+        {
+            return Array.Empty<int>();
+        }
+
+        input = input.Trim('[', ']');
 		string[] array = input.Split(',');
 		List<int> list = new List<int>();
 		string[] array2 = array;

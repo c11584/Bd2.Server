@@ -5,7 +5,7 @@ namespace Bd2.Server.Model.DAO.Game;
 [SugarTable("MailInfo")]
 public class MailInfoDao
 {
-	[SugarColumn(ColumnName = "InvenIndex", IsPrimaryKey = true, IsIdentity = true)]
+	[SugarColumn(ColumnName = "InvenIndex", IsPrimaryKey = true, IsIdentity = true, ColumnDataType = "INTEGER")]
 	public long InvenIndex { get; set; }
 
 	[SugarColumn(ColumnName = "Uid")]
@@ -17,13 +17,13 @@ public class MailInfoDao
 	[SugarColumn(ColumnName = "MailId")]
 	public int MailId { get; set; }
 
-	[SugarColumn(ColumnName = "SenderText")]
+	[SugarColumn(ColumnName = "SenderText", IsNullable = true)]
 	public string? SenderText { get; set; }
 
-	[SugarColumn(ColumnName = "TitleText")]
+	[SugarColumn(ColumnName = "TitleText", IsNullable = true)]
 	public string? TitleText { get; set; }
 
-	[SugarColumn(ColumnName = "MessageText")]
+	[SugarColumn(ColumnName = "MessageText", IsNullable = true)]
 	public string? MessageText { get; set; }
 
 	[SugarColumn(ColumnName = "RewardExpireTime")]

@@ -5,7 +5,7 @@ namespace Bd2.Server.Model.DAO.Game;
 [SugarTable("UserInfo")]
 public class UserInfoDao
 {
-	[SugarColumn(ColumnName = "OwnerIndex", IsPrimaryKey = true)]
+	[SugarColumn(ColumnName = "OwnerIndex", IsPrimaryKey = true, ColumnDataType = "INTEGER")]
 	public long OwnerIndex { get; set; }
 
 	[SugarColumn(ColumnName = "UserId")]

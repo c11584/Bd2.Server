@@ -5,7 +5,7 @@ namespace Bd2.Server.Model.DAO.Game;
 [SugarTable("DeckInfo")]
 public class DeckInfoDao
 {
-	[SugarColumn(ColumnName = "Index", IsPrimaryKey = true, IsIdentity = true)]
+	[SugarColumn(ColumnName = "Index", IsPrimaryKey = true, IsIdentity = true, ColumnDataType = "INTEGER")]
 	public long Index { get; set; }
 
 	[SugarColumn(ColumnName = "Uid")]

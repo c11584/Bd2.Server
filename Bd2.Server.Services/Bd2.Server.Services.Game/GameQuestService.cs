@@ -253,7 +253,7 @@ public class GameQuestService : IGameQuestService
 					{
 						Uid = userId,
 						Id = costumeTable.Id
-					};
+                    };
 					costumeInfoDao.InvenIndex = _db.Insertable(costumeInfoDao).ExecuteReturnIdentity();
 					CharTable baseCharData = CharManager.GetBaseCharData(costumeTable.UseUniqueCharId);
 					CharInfoDao charInfoDao = new CharInfoDao

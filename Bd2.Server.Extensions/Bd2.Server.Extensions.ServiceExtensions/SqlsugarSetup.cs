@@ -1,70 +1,115 @@
 using System;
-using System.Text.RegularExpressions;
-using Bd2.Server.Common;
+using System.Reflection;
 using Bd2.Server.Common.DB;
+using Bd2.Server.Common;
 using Microsoft.Extensions.DependencyInjection;
 using SqlSugar;
 using SqlSugar.Extensions;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Bd2.Server.Extensions.ServiceExtensions;
 
 public static class SqlsugarSetup
 {
-	public static void AddSqlsugarSetup(this IServiceCollection services)
-	{
-		if (services == null)
-		{
-			throw new ArgumentNullException("services");
-		}
-		if (!string.IsNullOrEmpty(AppSettings.app("MainDB")))
-		{
-			MainDb.CurrentDbConnId = AppSettings.app("MainDB");
-		}
-		BaseDBConfig.MutiConnectionString.allDbs.ForEach(delegate(MutiDBOperate m)
-		{
-			ConnectionConfig connectionConfig = new ConnectionConfig
-			{
-				ConfigId = m.ConnId.ObjToString().ToLower(),
-				ConnectionString = m.Connection,
-				DbType = (DbType)m.DbType,
-				IsAutoCloseConnection = true,
-				MoreSettings = new ConnMoreSettings
-				{
-					IsAutoRemoveDataCache = true,
-					SqlServerCodeFirstNvarchar = true
-				},
-				InitKeyType = InitKeyType.Attribute
-			};
-			if ("Log".ToLower().Equals(m.ConnId.ToLower()))
-			{
-				BaseDBConfig.LogConfig = connectionConfig;
-			}
-			else
-			{
-				BaseDBConfig.ValidConfig.Add(connectionConfig);
-			}
-			BaseDBConfig.AllConfigs.Add(connectionConfig);
-		});
-		if (BaseDBConfig.LogConfig == null)
-		{
-			throw new ApplicationException("未配置Log库连接");
-		}
-		services.AddSingleton((Func<IServiceProvider, ISqlSugarClient>)((IServiceProvider o) => new SqlSugarScope(BaseDBConfig.AllConfigs, delegate(SqlSugarClient db)
-		{
-			BaseDBConfig.ValidConfig.ForEach(delegate(ConnectionConfig config)
-			{
-				db.GetConnectionScope((string)config.ConfigId);
-			});
-		})));
-	}
+    public static void AddSqlsugarSetup(this IServiceCollection services)
+    {
+        if (services == null)
+        {
+            throw new ArgumentNullException(nameof(services));
+        }
 
-	private static string ExtractTableName(string sql)
-	{
-		Match match = new Regex("(?i)(?:FROM|UPDATE|DELETE\\s+FROM)\\s+`(.+?)`", RegexOptions.IgnoreCase).Match(sql);
-		if (match.Success)
-		{
-			return match.Groups[1].Value;
-		}
-		return string.Empty;
-	}
+        if (!string.IsNullOrEmpty(AppSettings.app("MainDB")))
+        {
+            MainDb.CurrentDbConnId = AppSettings.app("MainDB");
+        }
+
+        BaseDBConfig.MutiConnectionString.allDbs.ForEach(m =>
+        {
+            var connectionConfig = new ConnectionConfig
+            {
+                ConfigId = m.ConnId.ObjToString().ToLower(),
+                ConnectionString = m.Connection,
+                DbType = (DbType)m.DbType,
+                IsAutoCloseConnection = true,
+                InitKeyType = InitKeyType.Attribute,
+                MoreSettings = new ConnMoreSettings
+                {
+                    IsAutoRemoveDataCache = true,
+                    SqlServerCodeFirstNvarchar = true
+                }
+            };
+
+            if ("Log".ToLower().Equals(m.ConnId.ToLower()))
+            {
+                BaseDBConfig.LogConfig = connectionConfig;
+            }
+            else
+            {
+                BaseDBConfig.ValidConfig.Add(connectionConfig);
+            }
+
+            BaseDBConfig.AllConfigs.Add(connectionConfig);
+        });
+
+        if (BaseDBConfig.LogConfig == null)
+        {
+            throw new ApplicationException("未配置Log库连接");
+        }
+
+        services.AddSingleton<ISqlSugarClient>(provider =>
+        {
+            var scope = new SqlSugarScope(BaseDBConfig.AllConfigs, db =>
+            {
+                BaseDBConfig.ValidConfig.ForEach(config =>
+                {
+                    db.GetConnectionScope(config.ConfigId);
+                });
+            });
+
+            InitTablesFromNamespace(scope, "Bd2.Server.Model.DAO");
+            InitTablesFromNamespace(scope, "Models");
+
+            return scope;
+        });
+    }
+
+    private static void InitTablesFromNamespace(SqlSugarScope sqlSugar, string targetNamespace)
+    {
+        var types = AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(a =>
+            {
+                try
+                {
+                    return a.GetTypes();
+                }
+                catch (ReflectionTypeLoadException ex)
+                {
+                    return ex.Types.Where(t => t != null)!;
+                }
+            })
+            .Where(t =>
+                t != null &&
+                t.IsClass &&
+                !t.IsAbstract &&
+                t.GetCustomAttribute<SugarTable>() != null &&
+                t.Namespace != null &&
+                (t.Namespace == targetNamespace || t.Namespace.StartsWith(targetNamespace + ".")))
+            .ToList();
+
+        int createdCount = 0;
+        var createdTables = new List<string>();
+
+        foreach (var type in types)
+        {
+            try
+            {
+                sqlSugar.CodeFirst.InitTables(type);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+    }
 }
