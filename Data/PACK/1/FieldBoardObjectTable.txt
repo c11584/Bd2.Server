@@ -1,0 +1,1 @@
+[{"AnimatorType":0,"BundleType":1,"Id":101,"MapId":2,"QuestId":49,"ResourceName":"HuntingGroundBorad","ResourceType":2,"Type":1}]

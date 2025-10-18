@@ -1,0 +1,1 @@
+[{"ActionAnimationName":"","DisableTimeline":[],"Id":0,"IdleAnimationName":"","InteractionLocalTextId":0,"IsEnableTimeline":0,"QuestRange":[]},{"ActionAnimationName":"Map1006_001_House_02_Door_Open","DisableTimeline":[],"Id":1,"IdleAnimationName":"Map1006_001_House_02_Door_Close","InteractionLocalTextId":0,"IsEnableTimeline":1,"QuestRange":[10]}]

@@ -1,0 +1,1 @@
+[{"AnimatorType":0,"BundleType":1,"DisableTimeline":[],"FieldObjectGroupId":601,"Id":6001,"IsEnableTimeline":0,"IsSelfMovable":1,"MapId":1,"MoveSpeed":5.0,"QuestEnableType":0,"QuestId":0,"ResourceName":"FieldCarryItem_Cat01","ResourceType":2}]

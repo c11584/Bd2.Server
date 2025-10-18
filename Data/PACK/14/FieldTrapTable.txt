@@ -1,0 +1,1 @@
+[{"AnimatorType":0,"BundleType":0,"DefaultState":1,"FieldBuffCoolTime":1,"FieldBuffId":1402,"Id":2101,"InteractionLocalTextId":0,"MapId":144,"MonsterBuffId":0,"PointPositionId":[],"QuestRange":[],"RangeType":0,"RegenSec":1,"ResetType":0,"ResourceName":"","ResourceType":0,"TrapSwitchId":0,"Type":0}]

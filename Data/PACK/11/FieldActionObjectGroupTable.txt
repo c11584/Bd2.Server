@@ -1,0 +1,1 @@
+[{"Id":501,"MiniMapViewFlag":0,"RegenSec":60,"Type":1,"UiLocalTextId":0},{"Id":502,"MiniMapViewFlag":0,"RegenSec":60,"Type":1,"UiLocalTextId":0}]

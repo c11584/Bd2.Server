@@ -1,0 +1,1 @@
+[{"BossId":206,"Difficulty":0,"Id":1,"MapId":28,"MonsterId":[201,202,203,204,205],"RecommendGrowthPoint":4233},{"BossId":1206,"Difficulty":1,"Id":2,"MapId":28,"MonsterId":[1201,1202,1203,1204,1205],"RecommendGrowthPoint":9810},{"BossId":2206,"Difficulty":2,"Id":3,"MapId":28,"MonsterId":[2201,2202,2203,2204,2205],"RecommendGrowthPoint":15492}]

@@ -1,0 +1,1 @@
+[{"DialogTextId":[40000201,40000202,40000203],"DisableDialogIndex":-1,"Id":152,"PackIndex":"Pack8"},{"DialogTextId":[40000204,40000205,40000206],"DisableDialogIndex":-1,"Id":153,"PackIndex":"Pack8"},{"DialogTextId":[40000207,40000208,40000209],"DisableDialogIndex":-1,"Id":154,"PackIndex":"Pack8"}]
