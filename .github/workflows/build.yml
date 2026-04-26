@@ -1,0 +1,61 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish SingleFile
+        run: |
+          dotnet publish Bd2.Server.Api/Bd2.Server.Api.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -p:IncludeAllContentForSelfExtract=true `
+            -p:EnableCompressionInSingleFile=true `
+            -p:PublishTrimmed=false `
+            -o publish
+
+      - name: Rename exe
+        shell: pwsh
+        run: |
+          Rename-Item publish\Bd2.Server.Api.exe Bd2.Server.exe
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bd2.Server
+          path: publish/Bd2.Server.exe
+
+      - name: Generate tag
+        id: tag
+        shell: pwsh
+        run: echo "version=v$((Get-Date).ToString('yyyyMMddHHmm'))" >> $env:GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.version }}
+          name: "Bd2.Server ${{ steps.tag.outputs.version }}"
+          body: |
+            ## Auto Build
+
+            下载 `Bd2.Server.exe`，双击直接运行，无需安装 .NET。
+
+            首次运行会自动释放 `Data/`、`wwwroot/`、`appsettings.json` 到 exe 同目录。
+
+            **配置:** 编辑释放出来的 `appsettings.json` 修改端口和数据库。
+          files: publish/Bd2.Server.exe

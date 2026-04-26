@@ -74,4 +74,11 @@
     </Reference> -->
 	<ProjectReference Include="..\Bd2.Server.Services\Bd2.Server.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Data\**\*.*">
+      <Link>Data\%(RecursiveDir)%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
