@@ -26,7 +26,6 @@ jobs:
             -p:IncludeAllContentForSelfExtract=true `
             -p:EnableCompressionInSingleFile=true `
             -p:PublishTrimmed=false `
-            "-p:NoWarn=NU1605;NU1701" `
             -o publish
 
       - name: Rename exe
