@@ -2,7 +2,7 @@ name: Build & Release
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -45,7 +45,7 @@ jobs:
         run: echo "version=v$((Get-Date).ToString('yyyyMMddHHmm'))" >> $env:GITHUB_OUTPUT
 
       - name: Create GitHub Release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.version }}
