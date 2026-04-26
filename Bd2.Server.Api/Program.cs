@@ -17,6 +17,7 @@ public class Program
 {
 	public static void Main(string[] args)
 	{
+		Environment.CurrentDirectory = AppContext.BaseDirectory;
 		WebApplicationBuilder webApplicationBuilder = WebApplication.CreateBuilder(args);
 		webApplicationBuilder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory()).ConfigureContainer(delegate(ContainerBuilder binder)
 		{

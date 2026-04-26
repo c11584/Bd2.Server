@@ -58,7 +58,7 @@ public class BaseDBConfig
 	{
 		if (mutiDBOperate.DbType == DataBaseType.Sqlite)
 		{
-			mutiDBOperate.Connection = "DataSource=" + Path.Combine(Environment.CurrentDirectory, mutiDBOperate.Connection);
+			mutiDBOperate.Connection = "DataSource=" + Path.Combine(AppContext.BaseDirectory, mutiDBOperate.Connection);
 		}
 		else if (mutiDBOperate.DbType == DataBaseType.SqlServer)
 		{
